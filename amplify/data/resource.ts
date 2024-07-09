@@ -13,10 +13,12 @@ const schema = a.schema({
       isDone: a.boolean(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-  Person: a.model({
-    firstName: a.string(),
-    age: a.integer(),
-  }),
+  Person: a
+    .model({
+      firstName: a.string(),
+      age: a.integer(),
+    })
+    .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
